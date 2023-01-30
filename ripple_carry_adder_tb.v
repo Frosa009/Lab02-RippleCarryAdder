@@ -136,8 +136,8 @@ module ripple_carry_adder_tb;
         // ----------------------------------------
         // Add test cases here 
         // ----------------------------------------
-        totalTests = totalTests + 1
-        $write("\tTest Case 2.1: 16 bits);
+        //totalTests = totalTests + 1
+        //$write("\tTest Case 2.1: 16 bits);
         // -------------------------------------------------------
         // End testing
         // -------------------------------------------------------
