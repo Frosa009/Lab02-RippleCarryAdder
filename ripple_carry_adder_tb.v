@@ -1,7 +1,7 @@
 //=========================================================================
 // Name & Email must be EXACTLY as in Gradescope roster!
-// Name: 
-// Email: 
+// Name: Fernando Rosales
+// Email: frosa009@ucr.edu
 // 
 // Assignment name: 
 // Lab section: 
@@ -100,7 +100,34 @@ module ripple_carry_adder_tb;
         // ----------------------------------------
         // Add more test cases here 
         // ----------------------------------------
+        totalTests = totalTests + 1;
+        $write("\tTest Case 1.2:  127 +  1 =   128, c_out = 1 ... ");
+        A = 8'h7f;
+        B = 8'h01;
+        expected_result = 8'h80;
 
+        #100; // Wait 
+        if (expected_result !== result || carryout !== 1'b1) begin
+            $write("failed\n");
+            failedTests = failedTests + 1;
+        end else begin
+            $write("passed\n");
+        end
+        #10; // Wait 
+        totalTests = totalTests + 1;
+        $write("\tTest Case 1.3:   255 +  1 =   0, c_out = 1 ... ");
+        A = 8'hff;
+        B = 8'h01;
+        expected_result = 8'h00;
+
+        #100; // Wait 
+        if (expected_result !== result || carryout !== 1'b1) begin
+            $write("failed\n");
+            failedTests = failedTests + 1;
+        end else begin
+            $write("passed\n");
+        end
+        #10; // Wait 
         // ----------------------------------------
         // Tests group for Increasing Number of Bits 
         // ----------------------------------------
@@ -109,7 +136,8 @@ module ripple_carry_adder_tb;
         // ----------------------------------------
         // Add test cases here 
         // ----------------------------------------
-
+        totalTests = totalTests + 1
+        $write("\tTest Case 2.1: 16 bits);
         // -------------------------------------------------------
         // End testing
         // -------------------------------------------------------
