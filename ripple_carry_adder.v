@@ -31,7 +31,7 @@ module ripple_carry_adder # ( parameter NUMBITS = 16) (
     wire [NUMBITS:0] carry;
     wire [NUMBITS-1:0] Sum;
 
-    assign carry[0] = carryin;
+    assign carry[0] = 1'b0;
     genvar i;
     generate
         for(i = 0; i < NUMBITS; i = i+1)
