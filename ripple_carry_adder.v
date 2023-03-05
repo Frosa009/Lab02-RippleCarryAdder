@@ -29,7 +29,7 @@ module ripple_carry_adder # ( parameter NUMBITS = 16 ) (
     // ------------------------------ 
 
     wire [NUMBITS:0] Carryi;
-    wire [NUMBITS:0] Carryo;
+    //wire [NUMBITS:0] Carryo;
     wire [NUMBITS-1:0] Sum;
 
     assign Carryi[0] = 1'b0;
@@ -41,13 +41,13 @@ module ripple_carry_adder # ( parameter NUMBITS = 16 ) (
             (
             .a(A[i])
             .b(B[i])
-            .c_in(Carry[i])
+            .c_in(Carryi[i])
             .s(Sum[i])
-            .c_out(Carryo[i])
+            .c_out(Carryi[i])
             )
         end
     
     endgenerate
-    assign result = {w_carry[NUMBITS], Sum};
+    assign result = {Carryi[NUMBITS], Sum};
 
 endmodule
