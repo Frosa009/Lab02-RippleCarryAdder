@@ -1,7 +1,7 @@
 //=========================================================================
 // Name & Email must be EXACTLY as in Gradescope roster!
-// Name: 
-// Email: 
+// Name: Fernando Rosales
+// Email: frosa009@ucr.edu
 // 
 // Assignment name: 
 // Lab section: 
@@ -14,7 +14,7 @@
 //=========================================================================
 
 `timescale 1ns / 1ps
-
+`include "full_adder.v"
 //  Constant definitions 
 
 module ripple_carry_adder # ( parameter NUMBITS = 16 ) (
@@ -27,5 +27,25 @@ module ripple_carry_adder # ( parameter NUMBITS = 16 ) (
     // ------------------------------
     // Insert your solution below
     // ------------------------------ 
+
+    wire [NUMBITS:0] Carry;
+    wire [NUMBITS-1:0] Sum;
+
+    assign Carry[0] = 1'b0;
+    genvar i;
+    generate
+        for(i = 0; i < NUMBITS; i = i+1)
+        begin
+            full_adder new_adder
+            (
+            .a(A[i])
+            .b(B[i])
+            .c_in(Carry[i])
+            .s(Sum[i])
+            .c_out(Carry[i])
+            )
+        end
+    
+    endgenerate
 
 endmodule
