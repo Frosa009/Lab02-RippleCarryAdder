@@ -50,7 +50,7 @@ module ripple_carry_adder # ( parameter NUMBITS = 16 ) (
     endgenerate
 
    always @(*) begin
-    result = Sum;
+    assign result = Sum;
     carryout = carry[NUMBITS];
    end
 
