@@ -47,6 +47,6 @@ module ripple_carry_adder # ( parameter NUMBITS = 16 ) (
         end
     
     endgenerate
-    assign o_result = {w_carry[NUMBITS], Sum};
+    assign result = {w_carry[NUMBITS], Sum};
 
 endmodule
