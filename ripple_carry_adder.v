@@ -48,8 +48,10 @@ module ripple_carry_adder # ( parameter NUMBITS = 16 ) (
         end
     
     endgenerate
-   always@(*)begin
+
+   always @(*) begin
     result = Sum;
     carryout = carry[NUMBITS];
    end
+
 endmodule
