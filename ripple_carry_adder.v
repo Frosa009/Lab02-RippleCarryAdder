@@ -28,26 +28,28 @@ module ripple_carry_adder # ( parameter NUMBITS = 16 ) (
     // Insert your solution below
     // ------------------------------ 
 
-    wire [NUMBITS:0] Carryi;
+    wire [NUMBITS:0] carry;
     //wire [NUMBITS:0] Carryo;
     wire [NUMBITS-1:0] Sum;
 
-    assign Carryi[0] = 1'b0;
+    assign carry[0] = carryin;
     genvar i;
     generate
         for(i = 0; i < NUMBITS; i = i+1)
         begin
-            full_adder new_adder
+            full_adder fa
             (
             .a(A[i]),
             .b(B[i]),
-            .c_in(Carryi[i]),
+            .c_in(carry[i]),
             .s(Sum[i]),
-            .c_out(Carryi[i])
+            .c_out(carry[i+1])
             );
         end
     
     endgenerate
-    assign result = {Carryi[NUMBITS], Sum};
-
+   always@(*)begin
+    result = Sum;
+    carryout = carry[NUMBITS];
+   end
 endmodule
