@@ -39,12 +39,12 @@ module ripple_carry_adder # ( parameter NUMBITS = 16 ) (
         begin
             full_adder new_adder
             (
-            .a(A[i])
-            .b(B[i])
-            .c_in(Carryi[i])
-            .s(Sum[i])
+            .a(A[i]),
+            .b(B[i]),
+            .c_in(Carryi[i]),
+            .s(Sum[i]),
             .c_out(Carryi[i])
-            )
+            );
         end
     
     endgenerate
