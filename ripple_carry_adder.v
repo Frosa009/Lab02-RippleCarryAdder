@@ -14,10 +14,10 @@
 //=========================================================================
 
 `timescale 1ns / 1ps
-`include "full_adder.v"
+//`include "full_adder.v"
 //  Constant definitions 
 
-module ripple_carry_adder # ( parameter NUMBITS = 16 ) (
+module ripple_carry_adder # ( parameter NUMBITS = 16) (
     input  wire[NUMBITS-1:0] A, 
     input  wire[NUMBITS-1:0] B, 
     input wire carryin, 
